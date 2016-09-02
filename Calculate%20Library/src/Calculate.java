@@ -106,5 +106,19 @@ public class Calculate {
 		}
 		return (minValue);
 	}
-	public static double round2 (double number)
+	public static double round2 (double number){
+		double timesOneHundered = number * 100;
+		int truncNum = timeOneHundred;
+		double doubleTruncNum = truncNum;
+		double difference = timesOneHundered - doubleTruncNum
+		if (differene <= 4){
+			double returnNum = truncNum/100;
+			System.out.println(returnNum);
+			return (returnNum);
+		} else if (difference >= 5){
+			double returnNum = (truncnum + 1)/100;
+			System.out.println(returnNum);
+			return (returnNum);
+		}
+	}
 }

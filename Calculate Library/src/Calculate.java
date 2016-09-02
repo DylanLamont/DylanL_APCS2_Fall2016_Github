@@ -44,4 +44,84 @@ public class Calculate {
 	}
 	
 	
+	public static String toMixedNum (int numerator, int denominator){
+		int wholeNum = numerator/denominator;
+		int fracNum = numerator % denominator;
+		Integer.toString(wholeNum);
+		Integer.toString(fracNum);
+		return (wholeNum + "_" + fracNum + "/" + denominator);
+	}
+	
+	public static String foil (int a, int b, int c, int d, char var){
+		int degreeTwo = a*c;
+		int degreeOne = (a*d) + (b*c);
+		int yInt = b*d;
+		Integer.toString(degreeTwo);
+		Integer.toString(degreeOne);
+		Integer.toString(yInt);
+		return ( degreeTwo + var + "^2 + " + degreeOne + var + " + " + yInt);
+	}
+	
+	public static boolean isDivisibleBy ( int numerator, int denominator){
+		int calc = numerator % denominator;
+		boolean comparator = false;
+		if (calc == 0){
+			comparator = true;
+		}
+		return (comparator);
+	}
+	public static double absValue ( double absNum){
+		if (absNum < 0){
+			absNum = absNum * -1;
+		}
+		return (absNum);
+	}
+	
+	public static int max (int num1, int num2){
+		int maxValue;
+		if (num1 > num2){
+			maxValue = num1;
+			return (maxValue);
+		} else if (num2 > num1){
+			maxValue = num2;
+			return (maxValue);
+		}	
+		
+	}
+	
+	public static double max (double num1, double num2, double num3){
+		double maxValue;
+		if (num1 > num2 && num1 > num3){
+			maxValue = num1;
+		} else if (num2 > num1 && num2 > num3){
+			maxValue = num2;
+		} else if (num3 > num1 && num3 > num2){
+			maxValue = num3;
+		}
+		return (maxValue);
+	}
+	public static int min (int num1, int num2){
+		int minValue;
+		if (num1 > num2){
+			minValue = num2;
+		} else {
+			minValue = num1;
+		}
+		return (minValue);
+	}
+	public static double round2 (double number){
+		double timesOneHundered = number * 100;
+		int truncNum = (int)timesOneHundered;
+		double doubleTruncNum = truncNum;
+		double difference = timesOneHundered - doubleTruncNum;
+		if (difference <= 4){
+			double returnNum = truncNum/100;
+			System.out.println(returnNum);
+			return (returnNum);
+		} else if (difference >= 5){
+			double returnNum = (truncNum + 1)/100;
+			System.out.println(returnNum);
+			return (returnNum);
+		}
+	}
 }

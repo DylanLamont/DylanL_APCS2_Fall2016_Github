@@ -6,7 +6,7 @@
  */
 public class DoMath {
 	public static void main (String[] args){
-		Calculate.toImproperFrac(3, 1, 2);
+		Calculate.round2(34.856);
 		
 	//	Calculate.square(5);
 	//}
