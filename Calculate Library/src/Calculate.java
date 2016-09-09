@@ -78,7 +78,7 @@ public class Calculate {
 	}
 	
 	public static int max (int num1, int num2){
-		int maxValue;
+		int maxValue = 0;
 		if (num1 > num2){
 			maxValue = num1;
 			return (maxValue);
@@ -90,18 +90,21 @@ public class Calculate {
 	}
 	
 	public static double max (double num1, double num2, double num3){
-		double maxValue;
+		double maxValue = 0;
 		if (num1 > num2 && num1 > num3){
 			maxValue = num1;
+			return (maxValue);
 		} else if (num2 > num1 && num2 > num3){
 			maxValue = num2;
+			return (maxValue);
 		} else if (num3 > num1 && num3 > num2){
 			maxValue = num3;
+			return (maxValue);
 		}
-		return (maxValue);
+		
 	}
 	public static int min (int num1, int num2){
-		int minValue;
+		int minValue = 0;
 		if (num1 > num2){
 			minValue = num2;
 		} else {
@@ -110,18 +113,29 @@ public class Calculate {
 		return (minValue);
 	}
 	public static double round2 (double number){
-		double timesOneHundered = number * 100;
+		double timesOneHundered = number * 100.0;
 		int truncNum = (int)timesOneHundered;
 		double doubleTruncNum = truncNum;
 		double difference = timesOneHundered - doubleTruncNum;
-		if (difference <= 4){
-			double returnNum = truncNum/100;
+		if (difference <= 4.0){
+			double returnNum = truncNum/100.0;
 			System.out.println(returnNum);
 			return (returnNum);
-		} else if (difference >= 5){
-			double returnNum = (truncNum + 1)/100;
+		} else if (difference >= 5.0){
+			double returnNum = (truncNum + 1.0)/100.0;
 			System.out.println(returnNum);
 			return (returnNum);
 		}
+	}
+	
+	public static double exponent (double baseNum, int exponent){
+		double returnNum = 0;
+		double calcNum = baseNum;
+		for (int a = 1; a < exponent; a++){
+			returnNum = calcNum * baseNum;
+			calcNum = returnNum;
+		}
+		System.out.println(returnNum);
+		return (returnNum);
 	}
 }
