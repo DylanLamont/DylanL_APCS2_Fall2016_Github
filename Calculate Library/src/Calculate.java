@@ -101,6 +101,7 @@ public class Calculate {
 			maxValue = num3;
 			return (maxValue);
 		}
+		return(-1);
 		
 	}
 	public static int min (int num1, int num2){
@@ -138,4 +139,40 @@ public class Calculate {
 		System.out.println(returnNum);
 		return (returnNum);
 	}
+	
+	public static int factorial (int factNum){
+		int returnNum = factNum;
+		int calcNum = 0;
+		int loopVar = factNum-1;
+		for (; loopVar>0; loopVar--){
+			calcNum = returnNum * loopVar;
+			returnNum = calcNum;
+		}
+		System.out.println(returnNum);
+		return(returnNum);
+	}
+	
+	public static boolean isPrime (int numPrime){
+		int loopVar = numPrime-1;
+		boolean output = true;
+		for (; loopVar> 1; loopVar--){
+			if (Calculate.isDivisibleBy(numPrime, loopVar) == true){
+				output = false;
+			}
+		}
+		System.out.println(output);
+		return (output);
+	}
+						
+
+	public static int gcf (int num1, int num2){
+		int loopVar = Calculate.max(num1, num2);
+		for (;loopVar > 0; loopVar--){
+			if (num1 % loopVar == 0 && num2 % loopVar ==0){
+				return (loopVar);
+			}
+		}
+		return(-1);
+	}
 }
+

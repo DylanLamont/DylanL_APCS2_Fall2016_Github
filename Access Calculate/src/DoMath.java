@@ -6,7 +6,7 @@
  */
 public class DoMath {
 	public static void main (String[] args){
-		Calculate.exponent(2.0 , 8);
+		Calculate.gcf(10, 5);
 		
 	//	Calculate.square(5);
 	//}
