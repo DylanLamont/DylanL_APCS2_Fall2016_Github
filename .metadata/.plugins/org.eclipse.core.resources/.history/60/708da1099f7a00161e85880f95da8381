@@ -175,8 +175,5 @@ public class Calculate {
 		}
 		return(1);
 	}
-	public static double sqrt (double squareRoot){
-		double roundedSquareRoot = Calculate.round2(squareRoot);
-	}
 }
 

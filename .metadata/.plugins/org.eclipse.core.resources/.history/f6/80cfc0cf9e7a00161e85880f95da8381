@@ -86,7 +86,7 @@ public class Calculate {
 			maxValue = num2;
 			return (maxValue);
 		}	
-		return (-1);
+		
 	}
 	
 	public static double max (double num1, double num2, double num3){
@@ -127,7 +127,6 @@ public class Calculate {
 			System.out.println(returnNum);
 			return (returnNum);
 		}
-		return(-1.0);
 	}
 	
 	public static double exponent (double baseNum, int exponent){
@@ -173,10 +172,7 @@ public class Calculate {
 				return (loopVar);
 			}
 		}
-		return(1);
-	}
-	public static double sqrt (double squareRoot){
-		double roundedSquareRoot = Calculate.round2(squareRoot);
+		return(-1);
 	}
 }
 
