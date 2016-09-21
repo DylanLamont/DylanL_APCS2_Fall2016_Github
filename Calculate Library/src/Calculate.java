@@ -176,7 +176,21 @@ public class Calculate {
 		return(1);
 	}
 	public static double sqrt (double squareRoot){
-		double roundedSquareRoot = Calculate.round2(squareRoot);
+		double squareRootRound = Calculate.round2(squareRoot);
+		double base = 1.0;
+		for (; base*base != squareRootRound;){
+			if (base*base > squareRootRound){
+				base--;
+			}
+			if (base*base < squareRootRound/2){
+				base ++;
+				squareRootRound = squareRootRound / 2;
+			}
+			if (base*base > squareRootRound/2){
+				base --;
+			}
+		}
+		return (base);
 	}
 }
 

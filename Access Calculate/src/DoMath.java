@@ -6,7 +6,7 @@
  */
 public class DoMath {
 	public static void main (String[] args){
-		System.out.println(Calculate.gcf(10, 5));
+		System.out.println(Calculate.sqrt(64.0));
 		
 	//	Calculate.square(5);
 	//}
