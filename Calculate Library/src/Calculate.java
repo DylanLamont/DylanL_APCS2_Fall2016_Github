@@ -120,11 +120,9 @@ public class Calculate {
 		double difference = timesOneHundered - doubleTruncNum;
 		if (difference <= 4.0){
 			double returnNum = truncNum/100.0;
-			System.out.println(returnNum);
 			return (returnNum);
 		} else if (difference >= 5.0){
 			double returnNum = (truncNum + 1.0)/100.0;
-			System.out.println(returnNum);
 			return (returnNum);
 		}
 		return(-1.0);
@@ -176,7 +174,13 @@ public class Calculate {
 		return(1);
 	}
 	public static double sqrt (double squareRoot){
-		double squareRootRound = Calculate.round2(squareRoot);
+		double answer = squareRoot/2;
+		while (!(Calculate.absValue((answer*answer)- squareRoot)<= .009)){
+			answer = .5 * (answer + (squareRoot/answer));
+		}
+		return (Calculate.round2(answer));
+	}
+		/*double squareRootRound = Calculate.round2(squareRoot);
 		double base = 1.0;
 		for (; base*base != squareRootRound;){
 			if (base*base > squareRootRound){
@@ -191,6 +195,7 @@ public class Calculate {
 			}
 		}
 		return (base);
+	*/
 	}
-}
+
 
