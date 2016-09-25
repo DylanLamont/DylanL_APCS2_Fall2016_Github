@@ -16,20 +16,20 @@ public class Calculate {
 		return (baseCube * baseCube * baseCube);
 	}
 	
-	public static double average (double avgNum1 ,  double avgNum2){		// Method for averaging two numbers
-		return( (avgNum1 + avgNum2)/2 );		
+	public static double average (double num1 ,  double num2){		// Method for averaging two numbers
+		return( (num1 + num2)/2 );		
 	}
 
-	public static double average (double avgNum1 ,  double avgNum2, double avgNum3){		// Method for averaging two numbers
-		return( (avgNum1 + avgNum2 + avgNum3)/3 );		
+	public static double average (double num1 ,  double num2, double num3){		// Method for averaging two numbers
+		return( (num1 + num2 + num3)/3 );		
 	}
 
-	public static double toDegrees (double radian){
-		return( radian * (3.14159/180));
+	public static double toDegrees (double radianVal){
+		return( radianVal * (180/3.14159));
 	}
 
-	public static double toRadians (double degree){
-		return ( degree * (180/3.14159));
+	public static double toRadians (double degreeVal){
+		return ( degreeVal * (3.14159/180));
 	}
 	
 	public static double discriminant (double a , double b , double c ){
@@ -37,6 +37,9 @@ public class Calculate {
 	}
 
 	public static String toImproperFrac (int wholeNum, int numerator, int denominator ){
+		if (denominator == 0){
+			throw new IllegalArgumentException("Please enter a valid fraction where the denominator does not equal 0");
+		}
 		int calcVar = (wholeNum * denominator) + numerator;
 		Integer.toString(calcVar);
 		Integer.toString(denominator);
@@ -45,6 +48,9 @@ public class Calculate {
 	
 	
 	public static String toMixedNum (int numerator, int denominator){
+		if (denominator == 0){
+			throw new IllegalArgumentException("Please enter a valid fraction where the denominator does not equal 0");
+		}
 		int wholeNum = numerator/denominator;
 		int fracNum = numerator % denominator;
 		Integer.toString(wholeNum);
@@ -59,10 +65,13 @@ public class Calculate {
 		Integer.toString(degreeTwo);
 		Integer.toString(degreeOne);
 		Integer.toString(yInt);
-		return ( degreeTwo + var + "^2 + " + degreeOne + var + " + " + yInt);
+		return ( degreeTwo + "" + var + "^2 + " + degreeOne + var + " + " + yInt);
 	}
 	
 	public static boolean isDivisibleBy ( int numerator, int denominator){
+		if (denominator == 0){
+			throw new IllegalArgumentException("PLease enter a denominatior value that is not 0");
+		}
 		int calc = numerator % denominator;
 		boolean comparator = false;
 		if (calc == 0){
@@ -70,11 +79,11 @@ public class Calculate {
 		}
 		return (comparator);
 	}
-	public static double absValue ( double absNum){
-		if (absNum < 0){
-			absNum = absNum * -1;
+	public static double absValue ( double target){
+		if (target < 0){
+			target = target * -1;
 		}
-		return (absNum);
+		return (target);
 	}
 	
 	public static int max (int num1, int num2){
@@ -85,8 +94,9 @@ public class Calculate {
 		} else if (num2 > num1){
 			maxValue = num2;
 			return (maxValue);
-		}	
-		return (-1);
+		}else{
+			return (num1);
+		}
 	}
 	
 	public static double max (double num1, double num2, double num3){
@@ -100,15 +110,17 @@ public class Calculate {
 		} else if (num3 > num1 && num3 > num2){
 			maxValue = num3;
 			return (maxValue);
+		}else {
+		return(num2);
 		}
-		return(-1);
-		
 	}
 	public static int min (int num1, int num2){
 		int minValue = 0;
 		if (num1 > num2){
 			minValue = num2;
-		} else {
+		} else if(num2>num1) {
+			minValue = num1;
+		} else if(num1 == num2){
 			minValue = num1;
 		}
 		return (minValue);
@@ -116,12 +128,11 @@ public class Calculate {
 	public static double round2 (double number){
 		double timesOneHundered = number * 100.0;
 		int truncNum = (int)timesOneHundered;
-		double doubleTruncNum = truncNum;
-		double difference = timesOneHundered - doubleTruncNum;
-		if (difference <= 4.0){
+		double difference = Calculate.absValue(truncNum - (number*100));
+		if (difference < .5){
 			double returnNum = truncNum/100.0;
 			return (returnNum);
-		} else if (difference >= 5.0){
+		} else if (difference >= .5){
 			double returnNum = (truncNum + 1.0)/100.0;
 			return (returnNum);
 		}
@@ -129,17 +140,22 @@ public class Calculate {
 	}
 	
 	public static double exponent (double baseNum, int exponent){
+		if (exponent < 0){
+			throw new IllegalArgumentException("Please enter a positive integer for the exponent");
+		}
 		double returnNum = 0;
 		double calcNum = baseNum;
 		for (int a = 1; a < exponent; a++){
 			returnNum = calcNum * baseNum;
 			calcNum = returnNum;
 		}
-		System.out.println(returnNum);
 		return (returnNum);
 	}
 	
 	public static int factorial (int factNum){
+		if (factNum<0){
+			throw new IllegalArgumentException("Please enter a positive number");
+		}
 		int returnNum = factNum;
 		int calcNum = 0;
 		int loopVar = factNum-1;
@@ -147,7 +163,6 @@ public class Calculate {
 			calcNum = returnNum * loopVar;
 			returnNum = calcNum;
 		}
-		System.out.println(returnNum);
 		return(returnNum);
 	}
 	
@@ -159,13 +174,15 @@ public class Calculate {
 				output = false;
 			}
 		}
-		System.out.println(output);
 		return (output);
 	}
 						
 
 	public static int gcf (int num1, int num2){
 		int loopVar = Calculate.max(num1, num2);
+		if (num1 == num2){
+			return(num1);
+		}
 		for (;loopVar > 0; loopVar--){
 			if (num1 % loopVar == 0 && num2 % loopVar ==0){
 				return (loopVar);
@@ -173,29 +190,30 @@ public class Calculate {
 		}
 		return(1);
 	}
-	public static double sqrt (double squareRoot){
-		double answer = squareRoot/2;
-		while (!(Calculate.absValue((answer*answer)- squareRoot)<= .009)){
-			answer = .5 * (answer + (squareRoot/answer));
+	public static double sqrt (double target){
+		if (target < 0){
+			throw new IllegalArgumentException("PLease enter a value that is positive");
+		}
+		double answer = target/2;
+		while (!(Calculate.absValue((answer*answer)- target)<= .009)){
+			answer = .5 * (answer + (target/answer));
 		}
 		return (Calculate.round2(answer));
 	}
-		/*double squareRootRound = Calculate.round2(squareRoot);
-		double base = 1.0;
-		for (; base*base != squareRootRound;){
-			if (base*base > squareRootRound){
-				base--;
-			}
-			if (base*base < squareRootRound/2){
-				base ++;
-				squareRootRound = squareRootRound / 2;
-			}
-			if (base*base > squareRootRound/2){
-				base --;
-			}
+	
+	public static String quadForm (int a, int b, int c){
+		double aDouble = a;
+		double bDouble = b;
+		double cDouble = c;
+		double discriminant = Calculate.discriminant(aDouble, bDouble, cDouble);
+		if (discriminant <0){
+				 return("no real roots");
 		}
-		return (base);
-	*/
+		double quadAdditive = ((-1*bDouble) + (Calculate.sqrt(discriminant)))/(2*aDouble);
+		double quadSubtractive = ((-1*bDouble) - (Calculate.sqrt(discriminant)))/(2*aDouble);
+		return(quadAdditive + " and " + quadSubtractive);
 	}
+}
+
 
 
