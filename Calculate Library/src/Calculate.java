@@ -20,7 +20,7 @@ public class Calculate {
 		return( (num1 + num2)/2 );		
 	}
 
-	public static double average (double num1 ,  double num2, double num3){		// Method for averaging two numbers
+	public static double average (double num1 , double num2, double num3){		// Method for averaging two numbers
 		return( (num1 + num2 + num3)/3 );		
 	}
 
@@ -62,10 +62,18 @@ public class Calculate {
 		int degreeTwo = a*c;
 		int degreeOne = (a*d) + (b*c);
 		int yInt = b*d;
+		String operator1 = " + ";
+		String operator2 = " + ";
 		Integer.toString(degreeTwo);
 		Integer.toString(degreeOne);
 		Integer.toString(yInt);
-		return ( degreeTwo + "" + var + "^2 + " + degreeOne + var + " + " + yInt);
+		if(degreeOne < 0){
+			operator1 = " - ";
+		}
+		if(yInt < 0){
+			operator2 = " - ";
+		}		
+		return ( degreeTwo + "" + var + "^2" + operator1 + (int)Calculate.absValue(degreeOne) + var + operator2 + (int)Calculate.absValue(yInt));
 	}
 	
 	public static boolean isDivisibleBy ( int numerator, int denominator){
@@ -211,6 +219,9 @@ public class Calculate {
 		}
 		double quadAdditive = ((-1*bDouble) + (Calculate.sqrt(discriminant)))/(2*aDouble);
 		double quadSubtractive = ((-1*bDouble) - (Calculate.sqrt(discriminant)))/(2*aDouble);
+		if(quadAdditive == quadSubtractive){
+			return(quadAdditive + "");
+		}
 		return(quadAdditive + " and " + quadSubtractive);
 	}
 }
