@@ -142,10 +142,6 @@ public class Calculate {
 			double returnNum = truncNum/100.0;
 			return (returnNum);
 		} else if (difference >= .5){
-			if (number <0){
-				double returnNum = (truncNum - 1.0)/100.0;
-				return (returnNum);
-			}
 			double returnNum = (truncNum + 1.0)/100.0;
 			return (returnNum);
 		}

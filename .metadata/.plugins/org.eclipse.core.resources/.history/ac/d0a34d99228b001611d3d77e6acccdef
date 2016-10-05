@@ -31,7 +31,7 @@ public class Calculate {
 	}
 	
 	public static double discriminant (double a , double b , double c ){			//Method used to find the discriminant of the three values
-		return ( (b*b)-4*a*c);
+		return ( (Calculate.square(b))-4*a*c);
 	}
 
 	public static String toImproperFrac (int wholeNum, int numerator, int denominator ){			//Method used to turn a fraction value into an improper fraction
@@ -142,10 +142,6 @@ public class Calculate {
 			double returnNum = truncNum/100.0;
 			return (returnNum);
 		} else if (difference >= .5){
-			if (number <0){
-				double returnNum = (truncNum - 1.0)/100.0;
-				return (returnNum);
-			}
 			double returnNum = (truncNum + 1.0)/100.0;
 			return (returnNum);
 		}
