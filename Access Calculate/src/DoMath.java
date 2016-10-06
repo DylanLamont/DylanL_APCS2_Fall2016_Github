@@ -10,5 +10,5 @@ public class DoMath {
 		
 	//	Calculate.square(5);
 	//}
-}
+	}
 }	

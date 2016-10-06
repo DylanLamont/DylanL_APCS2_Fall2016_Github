@@ -1,0 +1,14 @@
+/**Dylan Lamont
+ * September 1, 2016
+ *
+ * @author APCS2
+ *
+ */
+public class DoMath {
+	public static void main (String[] args){
+		System.out.println(Calculate.discriminant(1, 3, 1));
+		
+	//	Calculate.square(5);
+	//}
+}
+}	

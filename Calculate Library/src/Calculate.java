@@ -142,6 +142,10 @@ public class Calculate {
 			double returnNum = truncNum/100.0;
 			return (returnNum);
 		} else if (difference >= .5){
+			if (number <0){
+				double returnNum = (truncNum - 1.0)/100.0;
+				return (returnNum);
+			}
 			double returnNum = (truncNum + 1.0)/100.0;
 			return (returnNum);
 		}
@@ -221,10 +225,16 @@ public class Calculate {
 		}
 		double quadAdditive = ((-1*bDouble) + (Calculate.sqrt(discriminant)))/(2*aDouble);
 		double quadSubtractive = ((-1*bDouble) - (Calculate.sqrt(discriminant)))/(2*aDouble);
+		quadAdditive = Calculate.round2(quadAdditive);
+		quadSubtractive = Calculate.round2(quadSubtractive);
 		if(quadAdditive == quadSubtractive){
 			return(quadAdditive + "");
 		}
-		return(quadAdditive + " and " + quadSubtractive);
+		if (quadAdditive > quadSubtractive){
+			return(quadSubtractive + " and " + quadAdditive);
+		}else{
+			return(quadAdditive + " and " + quadSubtractive);
+		}
 	}
 }
 
