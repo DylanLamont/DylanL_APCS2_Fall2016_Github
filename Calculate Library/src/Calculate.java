@@ -1,11 +1,9 @@
-/**
- * 
- */
 
 /**
  * @author APCS2
  * Dylan Lamont
  * August 31, 2016
+ * This is a library of various methods that can do various math functions
  */
 public class Calculate {
 	public static int square (int baseSquare){  		// Method for Squaring input
@@ -24,19 +22,19 @@ public class Calculate {
 		return( (num1 + num2 + num3)/3 );		
 	}
 
-	public static double toDegrees (double radianVal){
+	public static double toDegrees (double radianVal){				//Method to turn Radians into degrees
 		return( radianVal * (180/3.14159));
 	}
 
-	public static double toRadians (double degreeVal){
+	public static double toRadians (double degreeVal){			//Method to turn Degrees into radians
 		return ( degreeVal * (3.14159/180));
 	}
 	
-	public static double discriminant (double a , double b , double c ){
+	public static double discriminant (double a , double b , double c ){			//Method used to find the discriminant of the three values
 		return ( (b*b)-4*a*c);
 	}
 
-	public static String toImproperFrac (int wholeNum, int numerator, int denominator ){
+	public static String toImproperFrac (int wholeNum, int numerator, int denominator ){			//Method used to turn a fraction value into an improper fraction
 		if (denominator == 0){
 			throw new IllegalArgumentException("Please enter a valid fraction where the denominator does not equal 0");
 		}
@@ -47,7 +45,7 @@ public class Calculate {
 	}
 	
 	
-	public static String toMixedNum (int numerator, int denominator){
+	public static String toMixedNum (int numerator, int denominator){			// Method used to turn the improper fraction into a mixed fraction
 		if (denominator == 0){
 			throw new IllegalArgumentException("Please enter a valid fraction where the denominator does not equal 0");
 		}
@@ -55,10 +53,13 @@ public class Calculate {
 		int fracNum = numerator % denominator;
 		Integer.toString(wholeNum);
 		Integer.toString(fracNum);
+		if (fracNum == 0){
+			return (wholeNum + "");
+		}
 		return (wholeNum + "_" + fracNum + "/" + denominator);
 	}
 	
-	public static String foil (int a, int b, int c, int d, char var){
+	public static String foil (int a, int b, int c, int d, char var){			//Method used for processing the foil method.
 		int degreeTwo = a*c;
 		int degreeOne = (a*d) + (b*c);
 		int yInt = b*d;
@@ -76,7 +77,7 @@ public class Calculate {
 		return ( degreeTwo + "" + var + "^2" + operator1 + (int)Calculate.absValue(degreeOne) + var + operator2 + (int)Calculate.absValue(yInt));
 	}
 	
-	public static boolean isDivisibleBy ( int numerator, int denominator){
+	public static boolean isDivisibleBy ( int numerator, int denominator){				//Method to check whether a value can be divided by another wholely
 		if (denominator == 0){
 			throw new IllegalArgumentException("PLease enter a denominatior value that is not 0");
 		}
@@ -87,14 +88,14 @@ public class Calculate {
 		}
 		return (comparator);
 	}
-	public static double absValue ( double target){
+	public static double absValue ( double target){			//Method to find the absolute value of a number
 		if (target < 0){
 			target = target * -1;
 		}
 		return (target);
 	}
 	
-	public static int max (int num1, int num2){
+	public static int max (int num1, int num2){				//Method to find max of 2 numbers
 		int maxValue = 0;
 		if (num1 > num2){
 			maxValue = num1;
@@ -107,7 +108,7 @@ public class Calculate {
 		}
 	}
 	
-	public static double max (double num1, double num2, double num3){
+	public static double max (double num1, double num2, double num3){			//Method to find max of three numbers
 		double maxValue = 0;
 		if (num1 > num2 && num1 > num3){
 			maxValue = num1;
@@ -122,7 +123,7 @@ public class Calculate {
 		return(num2);
 		}
 	}
-	public static int min (int num1, int num2){
+	public static int min (int num1, int num2){					//Method to find the minimum of three numbers
 		int minValue = 0;
 		if (num1 > num2){
 			minValue = num2;
@@ -133,7 +134,7 @@ public class Calculate {
 		}
 		return (minValue);
 	}
-	public static double round2 (double number){
+	public static double round2 (double number){			//Rounds a double to 2 decimal points
 		double timesOneHundered = number * 100.0;
 		int truncNum = (int)timesOneHundered;
 		double difference = Calculate.absValue(truncNum - (number*100));
@@ -147,7 +148,7 @@ public class Calculate {
 		return(-1.0);
 	}
 	
-	public static double exponent (double baseNum, int exponent){
+	public static double exponent (double baseNum, int exponent){			//Finds value of the base number to the exponent power
 		if (exponent < 0){
 			throw new IllegalArgumentException("Please enter a positive integer for the exponent");
 		}
@@ -160,7 +161,7 @@ public class Calculate {
 		return (returnNum);
 	}
 	
-	public static int factorial (int factNum){
+	public static int factorial (int factNum){			//Multiplies the fact num by the decrementing values under it
 		if (factNum<0){
 			throw new IllegalArgumentException("Please enter a positive number");
 		}
@@ -174,7 +175,7 @@ public class Calculate {
 		return(returnNum);
 	}
 	
-	public static boolean isPrime (int numPrime){
+	public static boolean isPrime (int numPrime){				//Checks whether a number is prime
 		int loopVar = numPrime-1;
 		boolean output = true;
 		for (; loopVar> 1; loopVar--){
@@ -186,7 +187,7 @@ public class Calculate {
 	}
 						
 
-	public static int gcf (int num1, int num2){
+	public static int gcf (int num1, int num2){				//finds the greatest common factor of the two numbers
 		int loopVar = Calculate.max(num1, num2);
 		if (num1 == num2){
 			return(num1);
@@ -196,9 +197,10 @@ public class Calculate {
 				return (loopVar);
 			}
 		}
+		
 		return(1);
 	}
-	public static double sqrt (double target){
+	public static double sqrt (double target){				//Finds the square root value of the target
 		if (target < 0){
 			throw new IllegalArgumentException("PLease enter a value that is positive");
 		}
@@ -209,7 +211,7 @@ public class Calculate {
 		return (Calculate.round2(answer));
 	}
 	
-	public static String quadForm (int a, int b, int c){
+	public static String quadForm (int a, int b, int c){			//Finds the quadratic formula outputs for the three variables passed
 		double aDouble = a;
 		double bDouble = b;
 		double cDouble = c;
