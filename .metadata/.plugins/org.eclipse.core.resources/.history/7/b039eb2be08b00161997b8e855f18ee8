@@ -6,7 +6,7 @@
  */
 public class DoMath {
 	public static void main (String[] args){
-		System.out.println(Calculate.exponent(10, 3));
+		System.out.println(Calculate.sqrt(63.99999));
 		
 	//	Calculate.square(5);
 	//}
