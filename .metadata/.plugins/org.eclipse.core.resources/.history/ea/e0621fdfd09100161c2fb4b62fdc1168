@@ -23,8 +23,7 @@ public class Magpie4 {
 	 * response based on the rules given
 	 */
 	public String getResponse(String statement) {
-		
-		
+	
 		String response = "";
 		if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
@@ -45,11 +44,19 @@ public class Magpie4 {
 			response = "Mills is much better than any other high school.";
 		} else if (findKeyword(statement, "robotics")>=0){
 			response = "Speaking of robotics, Mills High School I heard has a good team.";
-		} if (findKeyword(statement, "I want to", 0) >= 0) {
-			response = transformIWantToStatement(statement);
-		}else {
-			// Look for a two word (you <something> me)
-			// pattern
+		} else {
+			response = getRandomResponse();
+		} if (statement.trim().length()<1){
+			response = "Say something, please.";
+		}
+		
+		if(findKeyword(statement, "I want to", 0) >= 0) {
+				response = transformIWantToStatement(statement);
+			}
+
+		else {
+				// Look for a two word (you <something> me)
+				// pattern
 			int psn = findKeyword(statement, "you", 0);
 
 			if (psn >= 0 && findKeyword(statement, "me", psn) >= 0) {
@@ -57,17 +64,12 @@ public class Magpie4 {
 			} else {
 				response = getRandomResponse();
 			}
-		} if (statement.trim().length()<1){
-			response = "Say something, please.";
-		}// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
-		else {
-			response = getRandomResponse();
 		}
+					// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
+		return response;
 
 		// Responses which require transformations
 		
-		
-		return response;
 	}
 
 	/**
@@ -90,14 +92,6 @@ public class Magpie4 {
 		return "What would it mean to " + restOfStatement + "?";
 	}
 
-	/**
-	 * Take a statement with "you <something> me" and transform it into
-	 * "What makes you think that I <something> you?"
-	 * 
-	 * @param statement
-	 *            the user statement, assumed to contain "you" followed by "me"
-	 * @return the transformed statement
-	 */
 	private String transformYouMeStatement(String statement) {
 		// Remove the final period, if there is one
 		statement = statement.trim();
@@ -198,7 +192,6 @@ public class Magpie4 {
 		}
 
 		return response;
-		// Paste part 3 code here	
 	}
 
 }

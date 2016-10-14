@@ -24,30 +24,15 @@ public class Magpie4 {
 	 */
 	public String getResponse(String statement) {
 		
-		
-		String response = "";
-		if (findKeyword(statement, "no") >= 0) {
-			response = "Why so negative?";
-		} else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0) {
-			response = "Tell me more about your family.";
-		} else if(findKeyword(statement, "Dreyer") >= 0){
-			response = "Isn't Mrs. Dreyer the best teacher?";
-		} else if( findKeyword(statement, "deHeer")>=0){
-			response = "Where would that class be without Mr. Deheer's help?";
-		} else if (findKeyword(statement, "Lamont")>=0){
-			response = "Mr. Lamont is a good teacher, but his greatest accomplishment is probably his son.";
-		} else if (findKeyword(statement, "java")>=0){
-			response = "Do you like the programming language?";
-		} else if (findKeyword(statement, "Mills")>=0){
-			response = "Mills is much better than any other high school.";
-		} else if (findKeyword(statement, "robotics")>=0){
-			response = "Speaking of robotics, Mills High School I heard has a good team.";
-		} if (findKeyword(statement, "I want to", 0) >= 0) {
+		// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
+
+
+		// Responses which require transformations
+		else if (findKeyword(statement, "I want to", 0) >= 0) {
 			response = transformIWantToStatement(statement);
-		}else {
+		}
+
+		else {
 			// Look for a two word (you <something> me)
 			// pattern
 			int psn = findKeyword(statement, "you", 0);
@@ -57,16 +42,7 @@ public class Magpie4 {
 			} else {
 				response = getRandomResponse();
 			}
-		} if (statement.trim().length()<1){
-			response = "Say something, please.";
-		}// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
-		else {
-			response = getRandomResponse();
 		}
-
-		// Responses which require transformations
-		
-		
 		return response;
 	}
 
@@ -178,26 +154,7 @@ public class Magpie4 {
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse() {
-		final int NUMBER_OF_RESPONSES = 6;
-		double r = Math.random();
-		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
-		String response = "";
-
-		if (whichResponse == 0) {
-			response = "Interesting, tell me more.";
-		} else if (whichResponse == 1) {
-			response = "Hmmm.";
-		} else if (whichResponse == 2) {
-			response = "Do you really think so?";
-		} else if (whichResponse == 3) {
-			response = "You don't say.";
-		} else if (whichResponse == 4) {
-			response = "That sounds fantastic.";
-		} else if (whichResponse == 5) {
-			response = "What do you mean?";
-		}
-
-		return response;
+		
 		// Paste part 3 code here	
 	}
 

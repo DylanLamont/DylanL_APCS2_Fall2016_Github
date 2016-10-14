@@ -45,9 +45,18 @@ public class Magpie4 {
 			response = "Mills is much better than any other high school.";
 		} else if (findKeyword(statement, "robotics")>=0){
 			response = "Speaking of robotics, Mills High School I heard has a good team.";
-		} if (findKeyword(statement, "I want to", 0) >= 0) {
+		}else if (findKeyword(statement, "I want to", 0) >= 0) {
 			response = transformIWantToStatement(statement);
-		}else {
+		} else {
+			response = getRandomResponse();
+		} if (statement.trim().length()<1){
+			response = "Say something, please.";
+		}// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
+
+
+		// Responses which require transformations
+		
+		else {
 			// Look for a two word (you <something> me)
 			// pattern
 			int psn = findKeyword(statement, "you", 0);
@@ -57,16 +66,7 @@ public class Magpie4 {
 			} else {
 				response = getRandomResponse();
 			}
-		} if (statement.trim().length()<1){
-			response = "Say something, please.";
-		}// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
-		else {
-			response = getRandomResponse();
 		}
-
-		// Responses which require transformations
-		
-		
 		return response;
 	}
 
