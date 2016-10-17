@@ -44,8 +44,6 @@ public class Magpie4 {
 				response = transformIWantToStatement(statement);
 			}else if (findKeyword(statement, "I want", 0) >= 0){
 				response = transformIWantStatement(statement);
-			}else if(findKeyword(statement, "I") >= 0 && findKeyword(statement,"you")>=0){
-				response = transformIBlankYou(statement);
 			}
 
 			else
@@ -99,21 +97,6 @@ public class Magpie4 {
 			int psn = findKeyword (statement, "I want ", 0);
 			String restOfStatement = statement.substring(psn + 8).trim();
 			return "Would you really be happy if you had " + restOfStatement + "?";
-		}
-		private String transformIBlankYou(String statement)
-		{
-			//  Remove the final period, if there is one
-			statement = statement.trim();
-			String lastChar = statement.substring(statement
-					.length() - 1);
-			if (lastChar.equals("."))
-			{
-				statement = statement.substring(0, statement
-						.length() - 1);
-			}
-			int psn = 2;
-			String restOfStatement = statement.substring(psn, statement.indexOf("you")).trim();
-			return "Why do you " + restOfStatement + " me?";
 		}
 
 

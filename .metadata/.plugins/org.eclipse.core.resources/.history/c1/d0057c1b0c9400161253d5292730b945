@@ -113,7 +113,7 @@ public class Magpie4 {
 			}
 			int psn = 2;
 			String restOfStatement = statement.substring(psn, statement.indexOf("you")).trim();
-			return "Why do you " + restOfStatement + " me?";
+			return "What would it mean to " + restOfStatement + "?";
 		}
 
 
