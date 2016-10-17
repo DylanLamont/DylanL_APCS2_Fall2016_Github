@@ -59,15 +59,12 @@ public class Calculate {
 		return (wholeNum + "_" + fracNum + "/" + denominator);
 	}
 	
-	public static String foil (int a, int b, int c, int d, char var){			//Method used for processing the foil method.
+	public static String foil (int a, int b, int c, int d, String var){			//Method used for processing the foil method.
 		int degreeTwo = a*c;
 		int degreeOne = (a*d) + (b*c);
 		int yInt = b*d;
 		String operator1 = " + ";
 		String operator2 = " + ";
-		Integer.toString(degreeTwo);
-		Integer.toString(degreeOne);
-		Integer.toString(yInt);
 		if(degreeOne < 0){
 			operator1 = " - ";
 		}
