@@ -1,7 +1,8 @@
 public class Magpie4 {
 	
 	
-	public String getGreeting(){
+	public String getGreeting()
+		{
 			return "Hello, let's talk.";
 		}
 
@@ -12,7 +13,8 @@ public class Magpie4 {
 		 *            the user statement
 		 * @return a response based on the rules given
 		 */
-		public String getResponse(String statement){
+		public String getResponse(String statement)
+		{
 			String response = "";
 			if (statement.trim().length()<1){
 				response = "Say something, please.";
@@ -81,10 +83,6 @@ public class Magpie4 {
 			}
 			int psn = findKeyword (statement, "I want to", 0);
 			String restOfStatement = statement.substring(psn + 9).trim();
-			if (statement.substring(statement.length()-3, statement.length()).equals("you")){
-				restOfStatement = restOfStatement.substring(0, restOfStatement.length()-3);
-				return "What would it mean to " + restOfStatement + "me?";
-			}
 			return "What would it mean to " + restOfStatement + "?";
 		}
 		private String transformIWantStatement(String statement)
@@ -100,13 +98,10 @@ public class Magpie4 {
 			}
 			int psn = findKeyword (statement, "I want ", 0);
 			String restOfStatement = statement.substring(psn + 8).trim();
-			if (findKeyword(statement, "I want you")>=0){
-				return "Would you really be happy if you had me?";
-
-			}
 			return "Would you really be happy if you had " + restOfStatement + "?";
 		}
-		private String transformIBlankYou(String statement){
+		private String transformIBlankYou(String statement)
+		{
 			//  Remove the final period, if there is one
 			statement = statement.trim();
 			String lastChar = statement.substring(statement

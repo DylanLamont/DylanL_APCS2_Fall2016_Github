@@ -1,7 +1,8 @@
 public class Magpie4 {
 	
 	
-	public String getGreeting(){
+	public String getGreeting()
+		{
 			return "Hello, let's talk.";
 		}
 
@@ -12,7 +13,8 @@ public class Magpie4 {
 		 *            the user statement
 		 * @return a response based on the rules given
 		 */
-		public String getResponse(String statement){
+		public String getResponse(String statement)
+		{
 			String response = "";
 			if (statement.trim().length()<1){
 				response = "Say something, please.";
