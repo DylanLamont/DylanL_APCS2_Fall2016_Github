@@ -15,10 +15,10 @@ public class Split
 		//		it will split at the word "really" and return an array of ["I "," like "," apples!"]
 		
 		//play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
-	//	String s = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
-//		String s = "I really like really red apples";
-//		String[] f = s.split("really");
-//		System.out.print(Arrays.toString(f));
+		//String s = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
+		//String s = "I really like really red apples";
+	//	String[] f = s.split("really");
+		//System.out.print(Arrays.toString(f));
 		//System.out.print(s.indexOf("bread"));
 		
 
@@ -28,7 +28,7 @@ public class Split
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
 //		System.out.print(sandwichSplit("applespineapplesbreadlettustomatobaconmayohambreadcheesebreadchipssalsaflathambread"));
-		System.out.print(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
+		System.out.print(sandwichSplit("applespineapplesbread"));
 
 		//Your task pt 2:
 		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
@@ -47,18 +47,8 @@ public class Split
 		if(! s.substring(s.length()-5).equals("bread")){
 			contents[contents.length-1] = "";
 		}
-		int noContents = 0;
-		boolean isSandwhich = true;
-		for (int i = 0; i < contents.length;i++){
-			String test = "";
-			if (contents[i].equals(test) ){
-				noContents++;
-			}
-			if(noContents == contents.length){
-				isSandwhich = false;
-			}
-		}
-		if (isSandwhich == false){
+		
+		if ( contents.length == 0){
 			return ("That is not a sandwhich");
 		}else{
 			return(Arrays.toString(contents));

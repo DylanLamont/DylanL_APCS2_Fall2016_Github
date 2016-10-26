@@ -28,7 +28,7 @@ public class Split
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
 //		System.out.print(sandwichSplit("applespineapplesbreadlettustomatobaconmayohambreadcheesebreadchipssalsaflathambread"));
-		System.out.print(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
+		System.out.print(sandwichSplit("cheesebreadbread"));
 
 		//Your task pt 2:
 		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
