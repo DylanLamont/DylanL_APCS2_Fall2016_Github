@@ -62,14 +62,6 @@ public class Split
 		if (isSandwhich == false){
 			return ("That is not a sandwhich");
 		}else{
-			String[] returnArray = new String[contents.length-noContents];
-			int index = 0;
-			for (int i = 0; i < contents.length; i++){
-				if (!contents[i].equals("") ){
-					returnArray[index] = contents[i];
-					index++;
-				}			
-			}
 			return(Arrays.toString(contents));
 		}
 	}
@@ -106,7 +98,7 @@ public class Split
 					index++;
 				}			
 			}
-			return(Arrays.toString(returnArray));
+			return(Arrays.toString(contents));
 		}
 	}
 }
