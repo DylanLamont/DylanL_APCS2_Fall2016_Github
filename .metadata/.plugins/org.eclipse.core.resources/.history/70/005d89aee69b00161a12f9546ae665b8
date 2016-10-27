@@ -59,6 +59,7 @@ public class Split
 				isSandwhich = false;
 			}
 		}
+		noContents++;
 		if (isSandwhich == false){
 			return ("That is not a sandwhich");
 		}else{
@@ -95,6 +96,7 @@ public class Split
 				isSandwhich = false;
 			}
 		}
+		noContents ++;
 		if (isSandwhich == false){
 			return ("That is not a sandwhich");
 		}else{
