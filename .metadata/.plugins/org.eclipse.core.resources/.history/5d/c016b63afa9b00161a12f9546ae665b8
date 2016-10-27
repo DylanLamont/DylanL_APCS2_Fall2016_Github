@@ -27,16 +27,13 @@ public class Split
 		 * use String.split to split up the sandwich by the word "bread" and return what's in the middle of the sandwich and ignores what's on the outside
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
-	System.out.println(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
-	System.out.print(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
+		System.out.println(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
+//		System.out.print(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
 		System.out.println(sandwichSplit("cheesebreadpastramilettucecheesehambreadtomatopaprikabreadcrap"));
 		System.out.println(sandwichSplit("cheesebread"));
-		System.out.println(sandwichSplit("crap"));
+//		System.out.println(sandwichSplit("crap"));
 		System.out.println(sandwichSplit("breadcrap"));
-//		System.out.println(sandwichSplit(""));
-		System.out.print(spacesSandwhichSplit("apples pineapples bread lettus tomato bacon mayo ham bread cheese"));
-		System.out.print(spacesSandwhichSplit("apples pineapples bread lettus tomato bacon mayo ham bread cheese"));
-
+		//System.out.print(spacesSandwhichSplit("apples pineapples bread lettus tomato bacon mayo ham bread cheese"));
 		//Your task pt 2:
 		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
 		 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
@@ -58,9 +55,6 @@ public class Split
 //	}
 		
 		String[] contents = s.split("bread");
-		if (s.indexOf("bread")  == -1){
-			return ("That is not a sandwich");
-		}
 		if (s.indexOf("bread") != 0){
 			contents[0] = "";
 		}
@@ -89,25 +83,18 @@ public class Split
 					index++;
 				}			
 			}
-			String returnStringContents = "";
-			for (int i = 0; i < returnArray.length; i ++){
-				returnStringContents = returnStringContents + returnArray[i];
-			}
-			return(returnStringContents);
+			return(Arrays.toString(returnArray));
 		}
 	}
 	
 	public static String spacesSandwhichSplit(String s){
-		String[] withoutSpacesArray = s.split(" ");
-		String withoutSpacesString = "";
-		for (int i = 0; i < withoutSpacesArray.length; i ++){
-			withoutSpacesString = withoutSpacesString + withoutSpacesArray[i];
-		}
-		String[] contents = withoutSpacesString.split("bread");
-		if (withoutSpacesString.indexOf("bread") != 0){
+		String[] withoutSpaces = s.split(" ");
+		String postSplit = Arrays.toString(withoutSpaces);
+		String[] contents = postSplit.split("bread");
+		if (postSplit.indexOf("bread") != 0){
 			contents[0] = "";
 		}
-		if(! withoutSpacesString.substring(withoutSpacesString.length()-5).equals("bread")){
+		if(! postSplit.substring(postSplit.length()-5).equals("bread")){
 			contents[contents.length-1] = "";
 		}
 		int noContents = 0;
@@ -132,11 +119,7 @@ public class Split
 					index++;
 				}			
 			}
-			String returnStringContents = "";
-			for (int i = 0; i < returnArray.length; i ++){
-				returnStringContents = returnStringContents + returnArray[i];
-			}
-			return(returnStringContents);
+			return(Arrays.toString(returnArray));
 		}
 	}
 }
