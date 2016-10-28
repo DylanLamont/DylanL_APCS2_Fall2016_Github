@@ -27,7 +27,7 @@ public class Split
 		 * use String.split to split up the sandwich by the word "bread" and return what's in the middle of the sandwich and ignores what's on the outside
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
-//	System.out.println(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
+		System.out.println(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
 ////	System.out.println(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
 //		System.out.println(sandwichSplit("cheesebreadpastramilettucecheesehambreadtomatopaprikabreadcrap"));
 //		System.out.println(sandwichSplit("cheesebread"));

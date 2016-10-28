@@ -1,0 +1,19 @@
+
+public class LotsOfCopies {
+	public static void main(String[] args){
+		int num = 7;
+		String strMain = "APCS";
+		int[] arrMain = {1,2,3,4,5};
+		changeMe(num, strMain, arrMain);
+		System.out.println(num);
+		System.out.println(strMain);
+		System.out.println(arrMain);
+		changeMe(num, strMain, arrMain);
+	}
+	public static void changeMe (int x, String str, int[]arr){
+		System.out.println(x+7);
+		System.out.println(str + " Method call");
+		arr[4] = 19;
+		System.out.println(arr);
+	}
+}
