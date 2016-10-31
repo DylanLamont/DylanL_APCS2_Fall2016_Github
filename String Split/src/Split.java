@@ -1,3 +1,12 @@
+/*Dylan Lamont
+ * period 2
+ * October 30th, 2016
+ * 
+ * 
+ * 
+ */
+
+
 import java.util.Arrays;
 
 public class Split 
@@ -15,10 +24,10 @@ public class Split
 		//		it will split at the word "really" and return an array of ["I "," like "," apples!"]
 		
 		//play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
-	//	String s = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
-//		String s = "I really like really red apples";
-//		String[] f = s.split("really");
-//		System.out.print(Arrays.toString(f));
+//		String s = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
+		String s = "I really like really red apples";
+		String[] f = s.split("really");
+		System.out.println(Arrays.toString(f));
 		//System.out.print(s.indexOf("bread"));
 		
 
@@ -28,15 +37,17 @@ public class Split
 		 * What if it's a fancy sandwich with multiple pieces of bread?
 		*/
 		System.out.println(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
-////	System.out.println(sandwichSplit("breadpastramilettucecheesehambreadtomatopaprikabread"));
-//		System.out.println(sandwichSplit("cheesebreadpastramilettucecheesehambreadtomatopaprikabreadcrap"));
-//		System.out.println(sandwichSplit("cheesebread"));
-//		System.out.println(sandwichSplit("crap"));
-//		System.out.println(sandwichSplit("breadcrap"));
-////		System.out.println(sandwichSplit(""));
-//		System.out.print(spacesSandwhichSplit("apples pineapples bread lettus tomato bacon mayo ham bread cheese"));
-//	//	System.out.print(spacesSandwhichSplit("apples pineapples bread lettus tomato bacon mayo ham bread cheese"));
-		
+		System.out.println(sandwichSplit("cheesebreadpastramilettucecheesehambreadtomatopaprikabreadcrap"));
+		System.out.println(sandwichSplit("cheesebread"));
+		System.out.println(sandwichSplit("crap"));
+		System.out.println(sandwichSplit("breadcrap"));
+		System.out.println(sandwichSplit(""));
+		System.out.println(sandwichSplit("cheesebreadbread"));
+		System.out.println(spacesSandwhichSplit("apples pineapples bread lettus tomato bacon mayo ham bread cheese"));
+		System.out.println(spacesSandwhichSplit(""));
+		System.out.println(spacesSandwhichSplit("bread cheese"));
+		System.out.println(spacesSandwhichSplit("no"));
+		System.out.println(spacesSandwhichSplit("cheese bread bread"));
 		//Your task pt 2:
 		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
 		 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
@@ -46,7 +57,7 @@ public class Split
 		
 
 	}
-	public static String sandwichSplit(String s){
+	public static String sandwichSplit(String foodString){
 		//if (s.indexOf("bread") != 0){
 		//	s = s.substring(s.indexOf("bread"));
 		//}
@@ -56,32 +67,31 @@ public class Split
 		//}
 		
 //	}
-		
-		String[] contents = s.split("bread");
-		if (s.indexOf("bread")  == -1){
+		String[] contents = foodString.split("bread");		//conditional to find if first index outside first bread
+		if (foodString.indexOf("bread")  == -1){			//test to see if any bread in string, ie if string is valid
 			return ("That is not a sandwich");
 		}
-		if (s.indexOf("bread") != 0){
+		if (foodString.indexOf("bread") != 0){				//conditional to find if first index outside first bread, if outside, assigned to blank value
 			contents[0] = "";
 		}
-		if(! s.substring(s.length()-5).equals("bread")){
+		if(! foodString.substring(foodString.length()-5).equals("bread")){	//test to see if ending index is outside bread, if outside, assigned to blank value
 			contents[contents.length-1] = "";
 		}
-		int noContents = 0;
+		int noContentsCounter = 0;
 		boolean isSandwhich = true;
-		for (int i = 0; i < contents.length;i++){
+		for (int i = 0; i < contents.length;i++){					//loop finding number of blank indexes assigned
 			String test = "";
 			if (contents[i].equals(test) ){
-				noContents++;
+				noContentsCounter++;
 			}
-			if(noContents == contents.length){
+			if(noContentsCounter == contents.length){
 				isSandwhich = false;
 			}
 		}
-		if (isSandwhich == false){
-			return ("That is not a sandwhich");
+		if (isSandwhich == false){							//test for faulty sandwich design i.e. if blank indexes are the only indexes left
+			return ("That is not a sandwich");
 		}else{
-			String[] returnArray = new String[contents.length-noContents];
+			String[] returnArray = new String[contents.length-noContentsCounter];		//creation of new proportional array, no blank indexes, length of new array = original matrix length - number of empty indexes
 			int index = 0;
 			for (int i = 0; i < contents.length; i++){
 				if (!contents[i].equals("") ){
@@ -90,41 +100,50 @@ public class Split
 				}			
 			}
 			String returnStringContents = "";
-			for (int i = 0; i < returnArray.length; i ++){
+			for (int i = 0; i < returnArray.length; i ++){								//conversion of returnarray into printable string
 				returnStringContents = returnStringContents + returnArray[i];
 			}
 			return(returnStringContents);
 		}
 	}
 	
-	public static String spacesSandwhichSplit(String s){
-		String[] withoutSpacesArray = s.split(" ");
+	
+	
+	
+	
+	
+	
+	public static String spacesSandwhichSplit(String foodString){
+		if (foodString.length()<5){											//test to see if string is valid
+			return("That is not a sandwich");
+		}
+		String[] withoutSpacesArray = foodString.split(" ");
 		String withoutSpacesString = "";
-		for (int i = 0; i < withoutSpacesArray.length; i ++){
+		for (int i = 0; i < withoutSpacesArray.length; i ++){				//Conversion of first string with spaces into one without
 			withoutSpacesString = withoutSpacesString + withoutSpacesArray[i];
 		}
-		String[] contents = withoutSpacesString.split("bread");
+		String[] contents = withoutSpacesString.split("bread");				//conditional to find if first index outside first bread
 		if (withoutSpacesString.indexOf("bread") != 0){
 			contents[0] = "";
 		}
-		if(! withoutSpacesString.substring(withoutSpacesString.length()-5).equals("bread")){
+		if(! withoutSpacesString.substring(withoutSpacesString.length()-5).equals("bread")){		//test to see if ending index is outside bread
 			contents[contents.length-1] = "";
 		}
 		int noContents = 0;
 		boolean isSandwhich = true;
-		for (int i = 0; i < contents.length;i++){
+		for (int i = 0; i < contents.length;i++){					//loop finding number of blank indexes assigned
 			String test = "";
 			if (contents[i].equals(test) ){
 				noContents++;
 			}
-			if(noContents == contents.length){
+			if(noContents == contents.length){						//test for faulty sandwich design i.e. if blank indexes are the only indexes left
 				isSandwhich = false;
 			}
 		}
-		if (isSandwhich == false){
-			return ("That is not a sandwhich");
+		if (isSandwhich == false){									//return statement for bad sandwich
+			return ("That is not a sandwich");
 		}else{
-			String[] returnArray = new String[contents.length-noContents];
+			String[] returnArray = new String[contents.length-noContents];		//creation of new proportional array, no blank indexes, length of new array = original matrix length - number of empty indexes
 			int index = 0;
 			for (int i = 0; i < contents.length; i++){
 				if (!contents[i].equals("") ){
@@ -133,7 +152,7 @@ public class Split
 				}			
 			}
 			String returnStringContents = "";
-			for (int i = 0; i < returnArray.length; i ++){
+			for (int i = 0; i < returnArray.length; i ++){			//conversion of returnarray into printable string
 				returnStringContents = returnStringContents + returnArray[i];
 			}
 			return(returnStringContents);
