@@ -28,6 +28,7 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="C:\Users\APCS2\Downloads\array_lab_3_for_students\arrays_lab_3_basic_skills_1dim\src\arrays_materials"/>
 			<item value="C:\Users\APCS2\Downloads"/>
 			<item value="C:\Users\dylan\Downloads\magpie4 - Dylan Lamont\Magpie4\src"/>
 		</list>
