@@ -124,7 +124,6 @@ public class ArraysLab3
 		//System.out.println(Arrays.toString(remove(arr1, 6)));
 //		System.out.println(Arrays.toString(append(arr1,11)));
 		System.out.println(Arrays.toString(sum(arr1, arr1)));
-		System.out.println(sumEven(arr1));
 		
 		
 	}
